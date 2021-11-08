@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 # from django.contrib import messages
 from .forms import CustomUserCreationForm
 
@@ -30,6 +31,7 @@ def login_user(request):
     return render(request, 'users/login-register.html')
 
 
+@login_required(login_url='login-user')
 def logout_user(request):
     logout(request)
     print("user was successfully logged out")
