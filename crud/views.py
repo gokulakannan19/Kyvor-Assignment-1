@@ -47,3 +47,15 @@ def update_patient(request, pk):
     }
 
     return render(request, 'crud/patient_form.html', context)
+
+
+def delete_patient(request, pk):
+    patient = Patient.objects.get(id=pk)
+    if request.method == "POST":
+        patient.delete()
+        return redirect("home")
+    context = {
+        'patient': patient,
+    }
+
+    return render(request, 'delete-page.html', context)
