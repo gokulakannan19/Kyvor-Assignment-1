@@ -1,1 +1,38 @@
-{% extends 'main.html' %} {% block content %} {% endblock content %}
+{% extends 'main.html' %} {% block content %} {% if page == "register" %}
+<h3>Register User</h3>
+<p>Create a new account</p>
+
+<form action="#" method="POST">
+  {% csrf_token %} {% for field in form %}
+
+  <label>{{field.label}}</label>
+  {{field}} {% endfor %}
+
+  <inputtype ="submit" value="Register" />
+</form>
+
+<p>Already have an Account?</p>
+<a href="{% url 'login' %}">Log In</a>
+
+{% else %}
+
+<h3>Account Login</h3>
+<p>Hello Developer, Welcome Back!</p>
+
+<form action="" method="post" class="form auth__form">
+  {% csrf_token %}
+
+  <label>Username: </label>
+  <input type="text" name="username" placeholder="Enter your username..." />
+
+  <label>Password: </label>
+  <input type="password" name="password" placeholder="••••••••" />
+
+  <input type="submit" value="Log In" />
+  <a href="#">Forget Password?</a>
+</form>
+
+<p>Don’t have an Account?</p>
+<a href="#">Sign Up</a>
+
+{% endif %} {% endblock content %}
