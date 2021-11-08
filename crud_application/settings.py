@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'crud.apps.CrudConfig',
     'users.apps.UsersConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
