@@ -53,6 +53,7 @@ def register_user(request):
             print("User was created successfully")
 
             login(request, user)
+            return redirect('home')
 
         else:
             # messages.error(request, "An error occured in registration")
