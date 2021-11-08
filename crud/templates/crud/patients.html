@@ -1,3 +1,9 @@
 {% extends 'main.html' %} {% block content %} {% for patient in patients %}
-<p>{{patient.name}}</p>
+<span>
+  <div>
+    {{patient.name}}{{patient.age}}{{patient.blood_group}}
+    <a href="{% url 'update-patient' patient.id %}">Update</a>
+    <a href="#">Delete</a>
+  </div>
+</span>
 {% endfor %} {% endblock content %}

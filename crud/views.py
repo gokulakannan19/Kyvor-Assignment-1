@@ -29,3 +29,21 @@ def add_patient(request):
         'form': form
     }
     return render(request, 'crud/patient_form.html', context)
+
+
+def update_patient(request, pk):
+    patient = Patient.objects.get(id=pk)
+
+    form = PatientForm(instance=patient)
+
+    if request.method == "POST":
+        form = PatientForm(request.POST, instance=patient)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'crud/patient_form.html', context)
