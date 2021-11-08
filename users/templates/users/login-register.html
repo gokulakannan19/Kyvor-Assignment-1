@@ -8,11 +8,11 @@
   <label>{{field.label}}</label>
   {{field}} {% endfor %}
 
-  <inputtype ="submit" value="Register" />
+  <input type="submit" value="Register" />
 </form>
 
 <p>Already have an Account?</p>
-<a href="{% url 'login' %}">Log In</a>
+<a href="{% url 'login-user' %}">Log In</a>
 
 {% else %}
 

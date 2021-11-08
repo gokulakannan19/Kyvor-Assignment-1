@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
-from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+# from django.contrib import messages
+from .forms import CustomUserCreationForm
 
 
 def login_user(request):
@@ -26,3 +28,37 @@ def login_user(request):
             print("Username or password is incorrect")
 
     return render(request, 'users/login-register.html')
+
+
+def logout_user(request):
+    logout(request)
+    print("user was successfully logged out")
+    # messages.error(request, "User was successfully logged out")
+    return redirect('login-user')
+
+
+def register_user(request):
+    page = "register"
+
+    form = CustomUserCreationForm()
+
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            # messages.success(request, "User was created successfully")
+            print("User was created successfully")
+
+            login(request, user)
+
+        else:
+            # messages.error(request, "An error occured in registration")
+            print("An error occured")
+    context = {
+        'page': page,
+        'form': form,
+    }
+    return render(request, 'users/login-register.html', context)
