@@ -1,10 +1,6 @@
-from rest_framework import serializers
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
-from django.shortcuts import render
-from django.http import HttpResponse
 
 from crud.models import Patient
 
@@ -32,6 +28,7 @@ def get_patients(request):
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def patient_create(request):
     serializer = PatientSerializer(data=request.data)
 
@@ -42,6 +39,7 @@ def patient_create(request):
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def patient_update(request, pk):
     patient = Patient.objects.get(id=pk)
     serializer = PatientSerializer(instance=patient, data=request.data)
@@ -53,6 +51,7 @@ def patient_update(request, pk):
 
 
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def patient_delete(request, pk):
     patient = Patient.objects.get(id=pk)
     patient.delete()
