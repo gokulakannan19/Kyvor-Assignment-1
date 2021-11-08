@@ -1,8 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
+from .models import Patient
 
 
 def home(request):
-    return HttpResponse('Working fine')
+    patients = Patient.objects.all()
+
+    context = {
+        'patients': patients,
+    }
+
+    return render(request, 'crud/patients.html', context)
