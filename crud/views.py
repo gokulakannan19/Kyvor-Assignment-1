@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 from .models import Patient
 from .forms import PatientForm
 
@@ -15,6 +15,7 @@ def home(request):
     return render(request, 'crud/patients.html', context)
 
 
+@login_required(login_url='login-user')
 def add_patient(request):
 
     form = PatientForm()
@@ -31,6 +32,7 @@ def add_patient(request):
     return render(request, 'crud/patient_form.html', context)
 
 
+@login_required(login_url='login-user')
 def update_patient(request, pk):
     patient = Patient.objects.get(id=pk)
 
@@ -49,6 +51,7 @@ def update_patient(request, pk):
     return render(request, 'crud/patient_form.html', context)
 
 
+@login_required(login_url='login-user')
 def delete_patient(request, pk):
     patient = Patient.objects.get(id=pk)
     if request.method == "POST":

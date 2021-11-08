@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crud.apps.CrudConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
