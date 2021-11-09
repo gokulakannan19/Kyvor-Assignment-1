@@ -1,9 +1,20 @@
 {% extends 'main.html' %} {% block content %}
-
-<form class="form" action="" method="post">
-  {% csrf_token %}
-  <h4>Are you sure you want to delete {{patient.name}} ?</h4>
-  <input type="submit" value="Delete" />
-  <a class="" href="{% url 'home' %}">Go Back</a>
-</form>
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <h4>Delete Confirmation</h4>
+      <hr />
+      <div class="card card-body">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h4>Are you sure to delete the patient[{{ patient.name }}]?</h4>
+          <br />
+          <input type="submit" class="btn btn-danger" value="YES" />
+          <a href="{% url 'home' %}" class="btn btn-primary">CANCEL</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
