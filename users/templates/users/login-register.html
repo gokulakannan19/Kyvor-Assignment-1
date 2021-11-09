@@ -4,11 +4,13 @@
 <p>Create a new account</p>
 <form action="" method="POST">
   {% csrf_token %} {% for field in form %}
-
-  <label>{{field.label}}</label>
-  {{field}} {% endfor %}
-
-  <input type="submit" value="Register" />
+  <div class="mb-3">
+    <label for="" class="form-label">{{field.label}}</label>
+    {{field}}
+  </div>
+  {% endfor %}
+  <br />
+  <input class="btn btn-primary" type="submit" value="Register" />
 </form>
 
 <p>Already have an Account?</p>
@@ -41,7 +43,7 @@
   </div>
   <div class="mb-3">
     <p><a href="#">Forget Password?</a></p>
-    <p>Don’t have an Account?<a href="#">Sign Up</a></p>
+    <p>Don’t have an Account?<a href="{% url 'register-user' %}">Sign Up</a></p>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
