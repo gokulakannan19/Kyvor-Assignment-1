@@ -4,9 +4,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 # from rest_framework.authentication import TokenAuthentication
 from crud.models import Patient
-# from gene.models import Genes, Variants
+from genome.models import Gene
 
-from .serializer import PatientSerializer
+from .serializer import PatientSerializer, GeneSerializer
 
 
 @api_view(['GET'])
@@ -28,6 +28,18 @@ def get_routes(request):
     return Response(routes)
 
 # -------------------------------------------------------------------------------------------
+
+
+@api_view(['GET'])
+def get_genes(request):
+    Genes = Gene.objects.all()
+    serializer = GeneSerializer(Gene, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def post_variant(request):
+    Gene.objects.create()
 
 
 @api_view(['GET'])

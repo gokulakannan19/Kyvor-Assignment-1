@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Gene, Variant
+from .models import Gene
 # Create your views here.
 
 
@@ -13,21 +13,21 @@ def get_genes(request):
 
 def gene_detail(request, pk):
     gene = Gene.objects.get(id=pk)
-    variants = gene.variant_set.all()
+    # variants = gene.variant_set.all()
     context = {
         'gene': gene,
-        'variants': variants,
+        # 'variants': variants,
 
     }
     return render(request, "genome/gene_detail.html", context)
 
 
-def variant_detail(request, pk):
-    variant = Variant.objects.get(id=pk)
+# def variant_detail(request, pk):
+#     variant = Variant.objects.get(id=pk)
 
-    context = {
+#     context = {
 
-        'variant': variant,
+#         'variant': variant,
 
-    }
-    return render(request, "genome/variant_detail.html", context)
+#     }
+#     return render(request, "genome/variant_detail.html", context)
