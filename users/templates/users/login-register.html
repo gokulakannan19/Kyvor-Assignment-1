@@ -1,7 +1,7 @@
-{% extends 'main.html' %} {% block content %} {% if page == "register" %}
+{% extends 'main.html' %} {% block content %} <br /><br />
+{% if page == "register" %}
 <h3>Register User</h3>
 <p>Create a new account</p>
-
 <form action="" method="POST">
   {% csrf_token %} {% for field in form %}
 
@@ -18,21 +18,32 @@
 
 <h3>Account Login</h3>
 <p>Hello, Welcome Back!</p>
-
-<form action="" method="post" class="form auth__form">
+<form action="" method="post">
   {% csrf_token %}
-
-  <label>Username: </label>
-  <input type="text" name="username" placeholder="Enter your username..." />
-
-  <label>Password: </label>
-  <input type="password" name="password" placeholder="••••••••" />
-
-  <input type="submit" value="Log In" />
-  <a href="#">Forget Password?</a>
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">Username</label>
+    <input
+      name="username"
+      type="text"
+      class="form-control"
+      id="exampleInputUsername"
+      aria-describedby=""
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      type="password"
+      name="password"
+      class="form-control"
+      id="exampleInputPassword1"
+    />
+  </div>
+  <div class="mb-3">
+    <p><a href="#">Forget Password?</a></p>
+    <p>Don’t have an Account?<a href="#">Sign Up</a></p>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-<p>Don’t have an Account?</p>
-<a href="#">Sign Up</a>
 
 {% endif %} {% endblock content %}
