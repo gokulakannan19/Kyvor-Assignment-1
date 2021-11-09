@@ -21,5 +21,5 @@ urlpatterns = [
     path('patient/', include('crud.urls')),
     path('', include('users.urls')),
     path('api/', include('api.urls')),
-    path('', include('gene.urls')),
+    # path('', include('gene.urls')),
 ]

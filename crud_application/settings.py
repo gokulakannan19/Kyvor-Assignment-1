@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
     'crud.apps.CrudConfig',
     'users.apps.UsersConfig',
-    'gene.apps.GeneConfig',
+    # 'gene.apps.GeneConfig',
     'api.apps.ApiConfig',
 ]
 
