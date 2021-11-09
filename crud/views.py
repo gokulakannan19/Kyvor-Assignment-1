@@ -24,7 +24,7 @@ def add_patient(request):
         form = PatientForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('patient')
 
     context = {
         'form': form
@@ -42,7 +42,7 @@ def update_patient(request, pk):
         form = PatientForm(request.POST, instance=patient)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("patient")
 
     context = {
         'form': form,
@@ -56,7 +56,7 @@ def delete_patient(request, pk):
     patient = Patient.objects.get(id=pk)
     if request.method == "POST":
         patient.delete()
-        return redirect("home")
+        return redirect("patient")
     context = {
         'patient': patient,
     }
