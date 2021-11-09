@@ -7,11 +7,23 @@
     <hr />
     <div class="card card-body">
       <form method="POST">
+        {% csrf_token %} {% for field in form %}
+
+        <div class="form__field">
+          <label for="" class="form-label">{{field.label}}</label>
+          {{field}}
+        </div>
+
+        {% endfor %}
+        <br />
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+      <!-- <form method="POST">
         {% csrf_token %} {{ form.as_p }}
         <!-- <input type="text" name="name">
                     <input type="file" name="document"> -->
-        <button class="btn btn-primary" type="submit">Submit</button>
-      </form>
+      <!-- <button class="btn btn-primary" type="submit">Submit</button>
+      </form> -->
     </div>
   </div>
 
