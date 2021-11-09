@@ -4,8 +4,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 # from rest_framework.authentication import TokenAuthentication
 from crud.models import Patient
+from gene.models import Genes, Variants
 
-from .serializer import PatientSerializer
+from .serializer import PatientSerializer, GenesSerializer, VariantsSerializer
 
 
 @api_view(['GET'])
@@ -16,9 +17,24 @@ def get_routes(request):
         {'POST': 'api/patients/add'},
         {'UPDATE': 'api/patients/update/id/'},
         {'DELETE': 'api/patients/delete/id/'},
+
+        {'GET': 'api/genes/'},
+        {'GET': 'api/genes/id'},
+        {'POST': 'api/genes/add'},
+        {'POST': 'api/variants/add'},
+        {'GET': 'api/variants/id'},
     ]
 
     return Response(routes)
+
+# -------------------------------------------------------------------------------------------
+
+
+@api_view(['GET'])
+def get_genes(request):
+    genes = Genes.objects.all()
+    serializer = GenesSerializer(genes, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
