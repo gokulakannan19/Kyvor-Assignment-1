@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Genes, Variants
-
+from .models import Genes
+# Register your models here.
 admin.site.register(Genes)
-admin.site.register(Variants)

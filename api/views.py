@@ -2,11 +2,12 @@ from django.contrib import auth
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+import api
 # from rest_framework.authentication import TokenAuthentication
 from crud.models import Patient
-from gene.models import Genes, Variants
+# from gene.models import Genes, Variants
 
-from .serializer import PatientSerializer, GenesSerializer, VariantsSerializer
+from .serializer import PatientSerializer
 
 
 @api_view(['GET'])
@@ -30,11 +31,30 @@ def get_routes(request):
 # -------------------------------------------------------------------------------------------
 
 
-@api_view(['GET'])
-def get_genes(request):
-    genes = Genes.objects.all()
-    serializer = GenesSerializer(genes, many=True)
-    return Response(serializer.data)
+# @api_view(['GET'])
+# def get_genes(request):
+#     genes = Genes.objects.all()
+#     serializer = GenesSerializer(genes, many=True)
+#     return Response(serializer.data)
+
+
+# @api_view(['GET'])
+# def get_variants(request):
+#     variants = Variants.objects.all()
+#     serializer = VariantsSerializer(variants, many=True)
+#     return Response(serializer.data)
+
+
+# @api_view(['POST'])
+# def add_data(request):
+#     serializer = VariantsSerializer(data=request.data)
+
+#     if serializer.is_valid():
+#         serializer.save()
+#     else:
+#         print("there is a problem")
+
+#     return Response(serializer.data)
 
 
 @api_view(['GET'])
