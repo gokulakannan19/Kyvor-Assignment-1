@@ -1,0 +1,10 @@
+{% extends 'main.html' %} {% block content %}
+<div>
+  <h4>{{gene}}</h4>
+
+  {% for variant in variant_list %}
+  <p>{{variant}}</p>
+  <a href="{% url 'variant-detail' variant %}">View</a>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -1,8 +1,9 @@
 {% extends 'main.html' %} {% block content %}
 <div>
-  {% for gene in genes %}
+  <h1>gene list</h1>
+  {{genes}} {% for gene in genes %}
+  <a href="{% url 'gene-detail' gene %}">View</a>
   <p>{{gene}}</p>
-  <a href="{% url 'gene-detail' gene.key %}">View</a>
   {% endfor %}
 </div>
 {% endblock content %}
