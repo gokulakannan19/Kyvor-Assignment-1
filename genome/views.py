@@ -6,7 +6,7 @@ from .models import Gene, Variant
 def get_genes(request):
     genes = Gene.objects.all()
     context = {
-
+        "genes": genes
     }
     return render(request, "genome/gene_list.html", context)
 
@@ -19,7 +19,7 @@ def gene_detail(request, pk):
         'variants': variants,
 
     }
-    return render(request, "geneome/gene_detail.html", context)
+    return render(request, "genome/gene_detail.html", context)
 
 
 def variant_detail(request, pk):
@@ -30,4 +30,4 @@ def variant_detail(request, pk):
         'variant': variant,
 
     }
-    return render(request, "geneome/variant_detail.html", context)
+    return render(request, "genome/variant_detail.html", context)

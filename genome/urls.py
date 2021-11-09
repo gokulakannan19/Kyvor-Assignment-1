@@ -5,6 +5,6 @@ from .import views
 
 urlpatterns = [
     path('', views.get_genes, name="home"),
-    path('gene-detail/', views.gene_detail, name="gene-detail"),
-    path('variant-detail', views.variant_detail, name="variant-detail"),
+    path('gene-detail/<str:pk>/', views.gene_detail, name="gene-detail"),
+    path('variant-detail/<str:pk>/', views.variant_detail, name="variant-detail"),
 ]
