@@ -2,7 +2,7 @@
 <div>
   {% for gene in genes %}
   <p>{{gene}}</p>
-
+  <a href="{% url 'gene-detail' gene.id %}">View</a>
   {% endfor %}
 </div>
 {% endblock content %}
