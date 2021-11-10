@@ -14,6 +14,8 @@ urlpatterns = [
     path('', views.get_routes, name="get-routes"),
     path('get-genes/', views.get_genes, name="get-genes"),
     path('gene-create/', views.gene_create, name="gene-create"),
+    path('gene-detail/<str:pk>/', views.gene_detail, name="gene-detail"),
+    path('variant-detail/<str:pk>/', views.variant_detail, name="variant-detail"),
 
     path('patients/', views.get_patients, name="get-patients"),
     path('patient-create/', views.patient_create, name="patient-create"),
