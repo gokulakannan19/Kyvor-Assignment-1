@@ -47,6 +47,7 @@ def gene_create(request):
     return Response(serializer.data)
 
 
+# --------------------------------------------------------------------------------------
 @api_view(['GET'])
 def get_patients(request):
     patients = Patient.objects.all()
