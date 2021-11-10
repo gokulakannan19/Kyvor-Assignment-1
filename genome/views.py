@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import Gene
 # Create your views here.
 
@@ -29,6 +30,7 @@ def gene_list(request):
     return render(request, 'genome/gene_list.html', context)
 
 
+@login_required(login_url='login-user')
 def gene_detail(request, pk):
     gene = pk
     genes = Gene.objects.filter(gene=pk)
@@ -37,9 +39,9 @@ def gene_detail(request, pk):
         if gene.variant not in variant_list:
             variant_list.append(gene.variant)
 
-    for variant in variant_list:
-        variants = Gene.objects.filter(variant=variant)
-    print(variants)
+    # for variant in variant_list:
+    #     variants = Gene.objects.filter(variant=variant)
+    # print(variants)
 
     context = {
         "gene": gene,
@@ -49,6 +51,7 @@ def gene_detail(request, pk):
     return render(request, 'genome/gene_detail.html', context)
 
 
+@login_required(login_url='login-user')
 def variant_detail(request, pk):
     variant = pk
     variants = Gene.objects.filter(variant=pk)

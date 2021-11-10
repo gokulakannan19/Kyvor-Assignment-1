@@ -12,6 +12,7 @@ urlpatterns = [
     path('users/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('', views.get_routes, name="get-routes"),
+    path('genes/', views.genes, name="genes"),
     path('get-genes/', views.get_genes, name="get-genes"),
     path('gene-create/', views.gene_create, name="gene-create"),
     path('gene-detail/<str:pk>/', views.gene_detail, name="gene-detail"),
