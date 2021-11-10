@@ -5,28 +5,12 @@ from .models import Gene
 
 
 def gene_list(request):
-
     genes = Gene.objects.values_list('gene', flat=True).distinct()
-#     > d = {'a': 'Arthur', 'b': 'Belling'}
     print(genes)
-
-# >> d.items()
-# [('a', 'Arthur'), ('b', 'Belling')]
-
-# >> d.keys()
-# ['a', 'b']
-
-# >> d.values()
-# ['Arthur', 'Belling']
-    # genes.items()
-    # print(genes.keys())
-    # print(genes.values())
-
     context = {
 
         'genes': genes
     }
-
     return render(request, 'genome/gene_list.html', context)
 
 
@@ -37,11 +21,6 @@ def gene_detail(request, pk):
     for gene in genes:
         if gene.variant not in variant_list:
             variant_list.append(gene)
-
-    # for variant in variant_list:
-    #     variants = Gene.objects.filter(variant=variant)
-    # print(variants)
-
     context = {
         "gene": pk,
         "variant_list": variant_list

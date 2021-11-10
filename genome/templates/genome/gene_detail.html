@@ -7,14 +7,19 @@
     <thead>
       <tr>
         <th scope="col">Variant</th>
-        <th scope="col"></th>
+        <th scope="col">Impact</th>
+        <th scope="col">Protein Effect</th>
+        <th scope="col">Variant Description</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       {% for variant in variant_list %}
       <tr>
         <th scope="row">{{variant.variant}}</th>
-
+        <td>{{variant.impact}}</td>
+        <td>{{variant.protein_effect}}</td>
+        <td>{{variant.variant_description}}</td>
         <td>
           <a
             class="btn btn-warning"

@@ -54,9 +54,9 @@ def gene_detail(request, pk):
     variant_list = []
     for gene in genes:
         if gene.variant not in variant_list:
-            variant_list.append(gene.variant)
-    # serializer = GeneSerializer(variant_list, many=True)
-    return Response(variant_list)
+            variant_list.append(gene)
+    serializer = GeneSerializer(variant_list, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
