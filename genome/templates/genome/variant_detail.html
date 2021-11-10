@@ -5,7 +5,6 @@
   <br />
   <table class="table table-dark table-striped">
     <tbody>
-      {% for variant in variants %}
       <tr>
         <th scope="row">Gene</th>
         <td>{{variant.gene}}</td>
@@ -30,7 +29,6 @@
         <th scope="row">Associated Drug Resistance</th>
         <td colspan="2">{{variant.associated_with_drug_resistance}}</td>
       </tr>
-      {% endfor %}
     </tbody>
   </table>
 </div>

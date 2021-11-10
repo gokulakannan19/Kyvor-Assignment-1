@@ -13,10 +13,12 @@
     <tbody>
       {% for variant in variant_list %}
       <tr>
-        <th scope="row">{{variant}}</th>
+        <th scope="row">{{variant.variant}}</th>
 
         <td>
-          <a class="btn btn-warning" href="{% url 'variant-detail' variant %}"
+          <a
+            class="btn btn-warning"
+            href="{% url 'variant-detail' variant.id %}"
             >View</a
           >
         </td>

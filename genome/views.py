@@ -32,19 +32,18 @@ def gene_list(request):
 
 @login_required(login_url='login-user')
 def gene_detail(request, pk):
-    gene = pk
     genes = Gene.objects.filter(gene=pk)
     variant_list = []
     for gene in genes:
         if gene.variant not in variant_list:
-            variant_list.append(gene.variant)
+            variant_list.append(gene)
 
     # for variant in variant_list:
     #     variants = Gene.objects.filter(variant=variant)
     # print(variants)
 
     context = {
-        "gene": gene,
+        "gene": pk,
         "variant_list": variant_list
     }
 
@@ -53,12 +52,12 @@ def gene_detail(request, pk):
 
 @login_required(login_url='login-user')
 def variant_detail(request, pk):
-    variant = pk
-    variants = Gene.objects.filter(variant=pk)
-
+    variant = Gene.objects.get(id=pk)
+    print(variant)
+    print(variant.gene)
     context = {
 
-        "variants": variants
+        "variant": variant
     }
 
     return render(request, 'genome/variant_detail.html', context)
