@@ -62,9 +62,9 @@ def gene_detail(request, pk):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def variant_detail(request, pk):
-    variant = pk
-    variants = Gene.objects.filter(variant=pk)
-    serializer = GeneSerializer(variants, many=True)
+
+    variant = Gene.objects.get(id=pk)
+    serializer = GeneSerializer(variant, many=False)
     return Response(serializer.data)
 
 
