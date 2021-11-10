@@ -36,7 +36,11 @@ def gene_detail(request, pk):
     for gene in genes:
         if gene.variant not in variant_list:
             variant_list.append(gene.variant)
-    # print(variant_list)
+
+    for variant in variant_list:
+        variants = Gene.objects.filter(variant=variant)
+    print(variants)
+
     context = {
         "gene": gene,
         "variant_list": variant_list

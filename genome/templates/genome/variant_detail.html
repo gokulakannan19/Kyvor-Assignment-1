@@ -1,8 +1,30 @@
 {% extends 'main.html' %} {% block content %}
 <div>
+  <h4>Gene Variant Detail</h4>
   {% for variant in variants %}
-  <p>{{variant.variant}}</p>
-  <p>{{variant.variant_description}}</p>
-  {% endfor %}
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Gene</li>
+    <li class="list-group-item">{{variant.gene}}</li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Variant</li>
+    <li class="list-group-item">{{variant.variant}}</li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Gene Variant Description</li>
+    <li class="list-group-item">{{variant.variant_description}}</li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Protein Effect</li>
+    <li class="list-group-item">{{variant.protein_effect}}</li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Impact List</li>
+    <li class="list-group-item">{{variant.impact}}</li>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Associated Drug Resistance</li>
+    <li class="list-group-item">{{variant.associated_with_drug_resistance}}</li>
+  </ul>
+  {% endfor %} {% endblock content %}
 </div>
-{% endblock content %}
