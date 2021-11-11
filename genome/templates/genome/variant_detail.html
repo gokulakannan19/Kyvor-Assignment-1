@@ -1,0 +1,41 @@
+{% extends 'main.html' %} {% block content %}
+<br />
+<div>
+  <h4 style="color: red">Gene Variant Detail</h4>
+  <br />
+  <table class="table table-dark table-striped">
+    <tbody>
+      <tr>
+        <th scope="row">Gene</th>
+        <td>
+          <a
+            class="btn btn-primary btn-sm"
+            href="{% url 'gene-detail' variant.gene %}"
+            >{{variant.gene}}</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Variant</th>
+        <td>{{variant.variant}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Impact List</th>
+        <td colspan="2">{{variant.impact}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Protein Effect</th>
+        <td colspan="2">{{variant.protein_effect}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Gene Variant Descriptions</th>
+        <td colspan="2">{{variant.variant_description}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Associated Drug Resistance</th>
+        <td colspan="2">{{variant.associated_with_drug_resistance}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
