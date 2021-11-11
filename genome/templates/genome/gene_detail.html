@@ -1,80 +1,21 @@
-{% extends 'main.html' %} {% block content %}
+{% extends 'main.html' %} {% load static %}{% block content %}
 <br />
 <div class="container">
-  <h4 style="color: red">Gene Name: {{gene}}</h4>
-  <br />
-  <div class="section__search">
-    <form class="form" action="" method="get" id="searchForm">
-      <div class="form__field">
-        <label for="formInput#search">Search By Variant</label>
-        <input
-          class="input input--text"
-          id="formInput#search"
-          type="text"
-          value="{{search_query}}"
-          name="search_query"
-          placeholder="Search by Variant Name"
-        />
-      </div>
-
-      <input class="btn btn--sub btn--lg" type="submit" value="Search" />
-    </form>
-  </div>
-
-  <table class="table table-dark table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Variant</th>
-        <th scope="col">Impact</th>
-        <th scope="col">Protein Effect</th>
-        <th scope="col">Variant Description</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for variant in variant_list %}
-      <tr>
-        <th scope="row">
-          <a
-            class="btn btn-primary btn-sm"
-            href="{% url 'variant-detail' variant.id %}"
-            >{{variant.variant}}</a
-          >
-        </th>
-        <td>{{variant.impact}}</td>
-        <td>{{variant.protein_effect}}</td>
-        <td>{{variant.variant_description}}</td>
-        <td>
-          <a
-            class="btn btn-warning"
-            href="{% url 'variant-detail' variant.id %}"
-            >View</a
-          >
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-
-<div class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
   <!--Title-->
+
   <h1
     class="
       flex
       items-center
       font-sans font-bold
       break-normal
-      text-indigo-500
       px-2
       py-8
       text-xl
       md:text-2xl
     "
   >
-    Responsive
-    <a class="underline mx-2" href="https://datatables.net/">DataTables.net</a>
-    Table
+    Gene Name: {{gene}}
   </h1>
 
   <!--Card-->
@@ -112,5 +53,4 @@
   </div>
   <!--/Card-->
 </div>
-
 {% endblock content %}
