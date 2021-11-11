@@ -1,0 +1,1 @@
+web: gunicorn crud_application --log-file

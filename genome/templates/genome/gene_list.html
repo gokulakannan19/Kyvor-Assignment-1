@@ -7,7 +7,7 @@
     <div class="row">
       {% for gene in genes %}
 
-      <div class="col-2 btn btn-secondary">
+      <div class="col-2 gene-grid">
         <a href="{% url 'gene-detail' gene %}">{{gene}}</a>
       </div>
       {% endfor %}
