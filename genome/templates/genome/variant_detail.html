@@ -7,7 +7,13 @@
     <tbody>
       <tr>
         <th scope="row">Gene</th>
-        <td>{{variant.gene}}</td>
+        <td>
+          <a
+            class="btn btn-primary btn-sm"
+            href="{% url 'gene-detail' variant.gene %}"
+            >{{variant.gene}}</a
+          >
+        </td>
       </tr>
       <tr>
         <th scope="row">Variant</th>

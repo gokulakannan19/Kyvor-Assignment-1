@@ -16,7 +16,13 @@
     <tbody>
       {% for variant in variant_list %}
       <tr>
-        <th scope="row">{{variant.variant}}</th>
+        <th scope="row">
+          <a
+            class="btn btn-primary btn-sm"
+            href="{% url 'variant-detail' variant.id %}"
+            >{{variant.variant}}</a
+          >
+        </th>
         <td>{{variant.impact}}</td>
         <td>{{variant.protein_effect}}</td>
         <td>{{variant.variant_description}}</td>
