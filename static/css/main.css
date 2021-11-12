@@ -73,3 +73,24 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
   height: 100%;
   background-color: #fec107;
 }
+
+.box-grid {
+  background: yellow;
+  border: 1px solid gray;
+}
+
+.btn-change {
+  height: 50px;
+  width: 100px;
+  background: lightseagreen;
+  margin: 20px;
+  float: left;
+  box-shadow: 0 0 1px #ccc;
+  -webkit-transition: all 0.5s ease-in-out;
+  border: 0px;
+  color: #fff;
+}
+.btn-change:hover {
+  -webkit-transform: scale(1.1);
+  background: #31708f;
+}
