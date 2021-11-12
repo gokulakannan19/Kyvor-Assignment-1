@@ -71,5 +71,5 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 
 .gene-grid :hover {
   height: 100%;
-  background-color: yellow;
+  background-color: #fec107;
 }
