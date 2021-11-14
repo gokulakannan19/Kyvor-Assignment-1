@@ -4,11 +4,16 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 # from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # from django.contrib import messages
 from .forms import CustomUserCreationForm
 
 
 def login_user(request):
+
+    if request.user.is_authenticated:
+        return redirect("home")
+
     page = "login"
 
     if request.method == "POST":
@@ -18,7 +23,7 @@ def login_user(request):
         try:
             user = User.objects.get(username=username)
         except:
-            print("Username does not exist")
+            pass
 
         user = authenticate(request, username=username, password=password)
 
@@ -26,7 +31,7 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            print("Username or password is incorrect")
+            messages.error(request, "Username or password is incorrect")
 
     return render(request, 'users/login-register.html')
 
@@ -34,7 +39,7 @@ def login_user(request):
 @login_required(login_url='login-user')
 def logout_user(request):
     logout(request)
-    print("user was successfully logged out")
+    messages.success(request, "user was successfully logged out")
     # messages.error(request, "User was successfully logged out")
     return redirect('login-user')
 
@@ -51,15 +56,15 @@ def register_user(request):
             user.username = user.username.lower()
             user.save()
 
-            # messages.success(request, "User was created successfully")
-            print("User was created successfully")
+            messages.success(request, "User was created successfully")
+            # print("User was created successfully")
 
             login(request, user)
             return redirect('home')
 
         else:
-            # messages.error(request, "An error occured in registration")
-            print("An error occured")
+            messages.error(request, "An error occured in registration")
+            # print("An error /occured")
     context = {
         'page': page,
         'form': form,
