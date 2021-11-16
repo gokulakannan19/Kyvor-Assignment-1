@@ -106,3 +106,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 
   z-index: 99999;
 }
+button.dt-button:hover:not(.disabled), div.dt-button:hover:not(.disabled), a.dt-button:hover:not(.disabled), input.dt-button:hover:not(.disabled) {
+
+  background-color: #fec107;
+}
