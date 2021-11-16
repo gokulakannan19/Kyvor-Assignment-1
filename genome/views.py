@@ -22,8 +22,8 @@ def gene_list(request):
 def gene_detail(request, pk):
 
     genes = Gene.objects.filter(gene=pk)
-    my_filter = GeneFilter(request.GET, queryset=genes)
-    genes = my_filter.qs
+    # my_filter = GeneFilter(request.GET, queryset=genes)
+    # genes = my_filter.qs
 
     variant_list = []
     for gene in genes:
@@ -33,7 +33,7 @@ def gene_detail(request, pk):
     context = {
         "gene": pk,
         "variant_list": variant_list,
-        "my_filter": my_filter,
+        # "my_filter": my_filter,
 
     }
 
