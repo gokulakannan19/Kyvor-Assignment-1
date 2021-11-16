@@ -33,7 +33,7 @@ def login_user(request):
         else:
             messages.error(request, "Username or password is incorrect")
 
-    return render(request, 'users/login-register.html')
+    return render(request, 'users/login.html')
 
 
 @login_required(login_url='login-user')
@@ -69,4 +69,4 @@ def register_user(request):
         'page': page,
         'form': form,
     }
-    return render(request, 'users/login-register.html', context)
+    return render(request, 'users/register.html', context)

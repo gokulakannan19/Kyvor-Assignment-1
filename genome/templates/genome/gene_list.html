@@ -1,25 +1,59 @@
 {% extends 'main.html' %} {% load static %} {% block content %}
 <style>
-  .btn-change {
+
+body {
+  font: 400 1.4rem 'Lato', Verdana, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .container { grid-template-columns: repeat(3, 1fr); }
+}
+.btn-change{
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px px;
+    font-size: 14px;
+    line-height: 1.2;
+    
     height: 50px;
     width: 100px;
-    background: white;
-    margin: 20px;
+    background:#e6e6e6;;
+    margin: 10px;
     float: left;
     box-shadow: 0 0 1px #ccc;
     -webkit-transition: all 0.5s ease-in-out;
-    border: 1px solid gray;
-    color: #474748;
-    padding: 12px;
-  }
-  .btn-change:hover {
+    border: 0px;
+    color: black;
+}
+.btn-change:hover{
     -webkit-transform: scale(1.1);
-    background: #fec107;
-  }
+    text-decoration: none;
+    background: #FFD700;
+}
+a {
+  color: black;
+  background-color: transparent;
+ 
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-1.5 * var(--bs-gutter-x));
+    margin-left: calc(-1.7 * var(--bs-gutter-x));
+}
 </style>
 <br />
 <div>
-  <h2 style="font-weight: bold">Gene list</h2>
+ 
   <br />
   <!-- <div class="container">
     <div class="row">
@@ -31,12 +65,29 @@
       {% endfor %}
     </div>
   </div> -->
-  <div class="container">
-    <div class="row">
+<div class='container'>
+<div class='row'>
+
+<div class="text-align" style="text-align: center;  ">
+    <h2 style="font-weight: bold">Gene list</h2>
+</div>
+    <div class="row" style="margin-left: 30px;">
+   
+
       {% for gene in genes %}
-      <a href="{% url 'gene-detail' gene %}" class="btn-change"> {{gene}} </a>
+
+      
+      <button  class="btn-change"> <a href="{% url 'gene-detail' gene %}" style='text-decoration: none'>{{gene}}</a></button> 
       {% endfor %}
     </div>
-    {% endblock content %}
+   
   </div>
+
 </div>
+  
+
+</div>
+ 
+
+
+{% endblock content %}
