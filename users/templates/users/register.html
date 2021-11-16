@@ -1,0 +1,23 @@
+{% extends 'main.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+        <h3 class="text-2xl font-bold text-center">Create a New Account</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mt-4">
+				{{form|crispy}}
+                <div class="flex items-baseline justify-between">
+                    
+                    <button class="px-6 py-2 mt-4 text-black bg-yellow-300 rounded-lg hover:bg-yellow-300" type="submit">Register</button>
+                    <a href="{% url 'login-user' %}" class="text-sm text-blue-600 hover:underline">Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
