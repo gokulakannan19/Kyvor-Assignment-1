@@ -47,7 +47,7 @@ body {
 /*Row Hover*/
 table.dataTable.hover tbody tr:hover,
 table.dataTable.display tbody tr:hover {
-  background-color: #fec107; /*bg-indigo-100*/
+  background-color: white; /*bg-indigo-100*/
 }
 
 /*Pagination Buttons*/
@@ -210,6 +210,3 @@ table.dataTable.hov
   background: linear-gradient(to bottom, #585858 0%, #111 100%);
 }
 
-.variant-heading:hover {
-  color: #fec107;
-}
