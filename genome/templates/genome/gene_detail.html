@@ -19,38 +19,40 @@
   </h1>
 
   <!--Card-->
-  <div id="recipients" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-    <table
-      id="example"
-      class="stripe hover"
-      style="width: 100%; padding-top: 1em; padding-bottom: 1em;"
-    >
-      <thead>
-        <tr>
-          <th data-priority="1">Variant</th>
-          <th data-priority="2">Impact</th>
-          <th data-priority="3">Protein Effect</th>
-          <th data-priority="4">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for variant in variant_list %}
-        <tr>
-          <td>
-            <a
+  
+    
+      <table id="example" class="stripe hover"
+      style="width: 100%; padding-top: 1em; padding-bottom: 1em;">
+
+        <thead>
+            <tr>
+            <th>Variant</th>
+          <th>Impact</th>
+          <th>Protein Effect</th>
+          <th>Description</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+           {% for variant in variant_list %}
+            <tr>
+                <td class="variant-heading"><a
               class="btn btn-outline-secondary btn-sm"
               href="{% url 'variant-detail' variant.id %}"
               >{{variant.variant}}</a
-            >
-          </td>
-          <td>{{variant.impact}}</td>
+            ></td>
+                <td>{{variant.impact}}</td>
           <td>{{variant.protein_effect}}</td>
           <td>{{variant.variant_description}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+                
+            </tr>
+                    {% endfor %}
+
+        </tbody>
+</table>
+<br>
+  
   <!--/Card-->
+  
 </div>
 {% endblock content %}

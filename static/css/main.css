@@ -102,7 +102,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 }
 
 .box-grid {
-  background: yellow;
+  background: #fec107;
   border: 1px solid gray;
 }
 
@@ -177,4 +177,39 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 
 .alert > .alert__close:hover {
   opacity: 0.85;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color:black !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  font-weight: 700;
+  border-radius: 0.25rem;
+  background:#fec107!important;
+  background-image: initial !important;
+  background-position-x: initial !important;
+  background-position-y: initial !important;
+  background-size: initial !important;
+
+  background-attachment: initial !important;
+  background-origin: initial !important;
+  background-clip: initial !important;
+  background-color:black;
+  border: 1px solid transparent;
+}*Row Hover*/
+table.dataTable.hov
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: white !important;
+  border: 1px solid #111;
+  background-color: #fec107;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111));
+  background: -webkit-linear-gradient(top, #585858 0%, #111 100%);
+  background: -moz-linear-gradient(top, #585858 0%, #111 100%);
+  background: -ms-linear-gradient(top, #585858 0%, #111 100%);
+  background: -o-linear-gradient(top, #585858 0%, #111 100%);
+  background: linear-gradient(to bottom, #585858 0%, #111 100%);
+}
+
+.variant-heading:hover {
+  color: #fec107;
 }
